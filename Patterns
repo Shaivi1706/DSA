@@ -1,1 +1,122 @@
+// 1 
+// 23
+// 345
+// 4567
 
+int main() {
+    int n;
+    cout<<"Enter the digit : ";
+    cin>>n;
+    for(int i=1; i<=n; i++) {
+        int k=i;
+        for(int j=1; j<=i; j++) {
+            cout<<k<<" ";
+            k++;
+        }
+        cout<<endl;
+    }
+}
+
+-------------------------------------------------------------
+
+// ABC 
+// BCD 
+// CDE
+
+int main() {
+    int n;
+    cout<<"Enter the number of rows: ";
+    cin>>n;
+
+    char ch = 'A';
+    for(int i=1; i<=n; i++) {
+        char nw = ch+i-1;
+
+        for(int j=1; j<=n; j++) {
+            cout<<nw<<" ";
+            nw=nw+1;
+        }
+        cout<<endl;
+    }
+}
+
+-------------------------------------------------------------
+
+// D 
+// CD
+// BCD
+// ABCD
+
+int main() {
+    int n;
+    cout<<"Enter the number of rows : ";
+    cin>>n;
+
+    for(int i=1; i<=n; i++) {
+        char ch='A' + n - i;
+
+        for(int j=1; j<=i; j++) {
+            cout<<ch<<" ";
+            ch++;
+        }
+
+        cout<<endl;
+    }
+}
+
+-------------------------------------------------------------
+
+//       * 
+//     * * 
+//   * * * 
+// * * * * 
+
+int main() {
+    int n;
+    cout<<"Enter number of rows : ";
+    cin>>n;
+
+    for(int i=1; i<=n; i++) {
+        for(int j=1; j<=n; j++) {
+            if(j>n-i) {
+                cout<<"*"<<" ";
+            }
+            else {
+                cout<<"  ";
+            }
+        }
+        cout<<endl;
+    }
+}
+
+-------------------------------------------------------------
+
+// 1234554321
+// 1234**4321
+// 123****321
+// 12******21
+// 1********1
+
+int main() {
+    int n;
+    cout<<"Enter number of rows: ";
+    cin>>n;
+
+    for(int i=1; i<=n; i++) {
+        int k=1;
+        for(int j=1; j<=2*n; j++) {
+            if(j>n-i+1 && j<=n+i-1) {
+                cout<<"* ";
+            }
+            else if(j<=n) {
+                cout<<k<<" ";
+                k++;
+            }
+            else if(j>n) {
+                k--;
+                cout<<k<<" ";
+            }
+        }
+        cout<<endl;
+    }
+}
