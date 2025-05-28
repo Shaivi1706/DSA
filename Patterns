@@ -156,3 +156,62 @@ int main() {
 
     pascalTri(n);
 }
+
+-------------------------------------------------------------
+
+// 1   2   3   4
+// 12 13  14   5
+// 11 16  15   6
+// 10  9   8   7
+void patt(int n) {
+    int k=1;
+    int top=0, bottom=n-1;
+    int left=0, right=n-1;
+
+    vector<vector<int> > ans(n, vector<int> (n));
+    //want to stay in the matrix only
+    while(left<=right && top<=bottom) {
+
+        //left to right
+        for(int i=left; i<=right; i++) {
+            ans[top][i]=k;
+            k++;
+        }
+        top++;
+
+        //top to bottom
+        for(int i=top; i<=bottom; i++) {
+            ans[i][right]=k;
+            k++;
+        }
+        right--;
+
+        //right to left
+        for(int i=right; i>=left; i--) {
+            ans[bottom][i]=k;
+            k++;
+        }
+        bottom--;
+
+        //bottom to top
+        for(int i=bottom; i>=top; i--) {
+            ans[i][left]=k;
+            k++;
+        }
+        left++;
+    }
+
+    for(int i=0; i<ans.size(); i++) {
+        for(int j=0; j<ans[i].size(); j++) {
+            cout<<ans[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+int main() {
+    int n;
+    cin>>n;
+
+    patt(n);
+}
