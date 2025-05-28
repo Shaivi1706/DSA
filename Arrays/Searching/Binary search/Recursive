@@ -1,0 +1,11 @@
+int binarySearch(int arr[], int high, int low, int k) {
+    if(low>high) return -1;
+
+    int mid = low + (high-low)/2;
+
+    if(arr[mid==k]) return mid;
+
+    else if(arr[mid]>k) return binarySearch(arr, mid-1, low, k);
+
+    else return binarySearch(arr, high, mid+1, k);
+}
