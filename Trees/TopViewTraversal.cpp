@@ -27,7 +27,6 @@ vector<int> topView(TreeNode *root){
         }
 
         for(auto i:mp) {
-            vector<int> col;
             for(auto j:i.second) {
                 sort(j.second.begin(), j.second.end());
                 for(auto k:j.second) {
