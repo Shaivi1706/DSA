@@ -1,3 +1,24 @@
+// optimized
+class Solution {
+public:
+    int maxDepth(string s) {
+        int count=0;
+        int maxi=0;
+
+        for(int i=0; i<s.size(); i++) {
+            char c=s[i];
+            if(c=='(') count++;
+            else if(c==')') count--;
+
+            maxi=max(maxi, count);
+        }
+
+        return maxi;
+    }
+};
+
+
+// with stack
 class Solution {
 public:
     int maxDepth(string s) {
