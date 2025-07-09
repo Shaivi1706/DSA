@@ -34,3 +34,45 @@ public:
         return a||b;
     }
 };
+
+
+
+// 2nd soln
+class Solution {
+public:
+    bool search(vector<int>& nums, int target) {
+        int st=0;
+        int e=nums.size()-1;
+
+        while(st<=e) {
+            int mid=st+(e-st)/2;
+
+            if(nums[mid]==target) {
+                return true;
+            }
+
+            if (nums[st] == nums[mid] && nums[mid] == nums[e]) {
+                st++;
+                e--;
+            }
+
+            else if(nums[st]<=nums[mid]) {
+                if(target>=nums[st] && target<nums[mid]) {
+                    e=mid-1;
+                }
+                else {
+                    st=mid+1;
+                }
+            }
+            else {
+                if(target<=nums[e] && target>nums[mid]) {
+                    st=mid+1;
+                }
+                else {
+                    e=mid-1;
+                }
+            }
+        }
+        return false;
+    }
+};
